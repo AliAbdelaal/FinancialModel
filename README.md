@@ -2,7 +2,7 @@
 
 a classification model that classify whether the EURUSD stock exchange will go up or down next day based on historical data
 
-![stock](res/stock.jpg)
+![stock](/res/stock.jpg)
 
 ## Experiments
 
@@ -12,10 +12,10 @@ a classification model that classify whether the EURUSD stock exchange will go u
 * ### Feature investigation
   i used multiple features and got the following results:
 
-  * using the High-Low average as the only feature ![training results](res/avg_feat.png)
-  * using `High`, `Low`, `Close`, `Volume`, `Avg`, `year`, `month`, `day` as features ![training results](res/multiple_feat.png)
-  * using `year`, `month`, `day`, `Volume` as features ![training results](res/time_feat.png)
-  * using 116 features that can be found [here](notebooks/FeatureEngineering.ipynb) ![training results](res/all_feat.png)
+  * using the High-Low average as the only feature <br> ![training results](/res/avg_feat.png)
+  * using `High`, `Low`, `Close`, `Volume`, `Avg`, `year`, `month`, `day` as features <br> ![training results](/res/multiple_feat.png)
+  * using `year`, `month`, `day`, `Volume` as features <br> ![training results](/res/time_feat.png)
+  * using 116 features that can be found [here](/notebooks/FeatureEngineering.ipynb) <br> ![training results](/res/all_feat.png)
 * ### Classification
   i used multiple classifiers to get the best results, the main idea is the same, having the average of any day compared by the next day (the objective of the task), and the rate could be higher `1` or lower `0`, results could be found below
 
