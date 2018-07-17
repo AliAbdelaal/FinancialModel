@@ -2,8 +2,6 @@
 
 a classification model that classify whether the EURUSD stock exchange will go up or down next day based on historical data
 
-![stock](/res/stock.jpg)
-
 ## Experiments
 
 * ### Linear Regression
