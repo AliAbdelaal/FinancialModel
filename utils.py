@@ -2,6 +2,8 @@ import os
 import pandas as pd
 import numpy as np
 from sklearn.preprocessing import MinMaxScaler
+from sklearn.preprocessing import PolynomialFeatures
+
 
 # useful constants
 RES_DIR = os.path.join(os.path.dirname(os.path.abspath(
@@ -15,6 +17,20 @@ YEAR_VALUES = DAY_VALUES*365
 
 def get_data(path=RES_DIR):
     df = pd.read_csv(path)
+    return df
+
+
+def generate_poly_feats(df, degree=3, y_col='next_rate'):
+    df.dropna(inplace=True)
+    for feature in df.columns:
+        if feature == 'next_rate':
+            continue
+        poly_gen = PolynomialFeatures(degree=degree, include_bias=False)
+        polys = poly_gen.fit_transform(df[[feature]])
+        for column in range(degree):
+            if column > 0:
+                new_col_name = "{}^{}".format(feature, column+1)
+                df[new_col_name] = polys[:, column]
     return df
 
 

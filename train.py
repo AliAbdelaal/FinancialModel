@@ -1,18 +1,23 @@
 import time
 from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestClassifier
+from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import classification_report
 import utils
 
 # import the data
 
 df = utils.get_featured_data()
+df = utils.generate_poly_feats(df, degree=2)
+
+corr_mat = df.corr()['Avg']
+feats = (corr_mat[abs(corr_mat)>=0.8].index)
+
 
 # split the data into training and test sets
-x_train, x_test, y_train, y_test = train_test_split(df.drop('next_rate', 1), df['next_rate'], test_size=.2)
+x_train, x_test, y_train, y_test = train_test_split(df[feats], df['next_rate'], test_size=.2)
 
 # train a random forest and observer results
-clf = RandomForestClassifier(n_estimators=100, n_jobs=-1)
+clf = LogisticRegression(C=100, penalty='l1')
 start = time.time()
 clf.fit(x_train, y_train)
 duration = time.time() - start

@@ -62,6 +62,16 @@ a classification model that classify whether the EURUSD stock exchange will go u
   avg / total       0.60      0.60      0.60       438
   ```
 
+* ### new classification experiment
+  this time we used multiple techniques to make sure that we have the best accuracy and that our model is actually has the accuracy that it says it has
+
+  * Polynomial Features
+    > i did experiment with 2 and 3 poly feautres and got better results using 2nd degree poly feautres
+  * using correlation as indicator for the features
+    > i tried to use feautres that has high correlation with the output variable, i tried features that has correlation above or equal [0.5, 0.7, 0.8, 0.9] and got the best cv score on the `0.8` correlation
+  * Grid search for best params
+    > i used grid search techniques to get the best params for my model, and after trying muliple feautres i got the best result using `logistic regression` with penalty score of `100` and using `l1` as penalty function.
+
 ## Conclusion
 
 * ### Regression Investigations
