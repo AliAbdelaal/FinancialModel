@@ -77,4 +77,4 @@ a classification model that classify whether the EURUSD stock exchange will go u
 * ### Regression Investigations
   we could see clearly that the set of features could capture more of the time series and resulted in better model both on the short and long terms.
 * ### Classification Investigations
-  i chose the random forest with 100 estimator as it was the fastest to train and with the best accuracy with respect to the time it took to train.
+  i chose the logistic regression as it had the best cv score and test score for prediction.
